@@ -9,18 +9,20 @@ import java.sql.SQLException;
 public class InitTable implements Operation{
     @Override
     public void execute() throws SQLException {
-        String sql = "create table if not exists user\n" +
-                "(\n" +
-                "    id   int auto_increment,\n" +
-                "    name varchar(30)  not null,\n" +
-                "    info varchar(300) null,\n" +
-                "    constraint user_pk\n" +
-                "        primary key (id)\n" +
-                ");";
+        String sql = """
+                create table if not exists user
+                (
+                    id   int auto_increment,
+                    name varchar(30)  not null,
+                    info varchar(300) null,
+                    constraint user_pk
+                        primary key (id)
+                );""";
         try (
                 Connection con = DataSource.getConnection();
                 PreparedStatement ps = con.prepareStatement(sql)) {
             ps.executeUpdate();
+            System.out.println("Table created");
             con.close();
         }
     }

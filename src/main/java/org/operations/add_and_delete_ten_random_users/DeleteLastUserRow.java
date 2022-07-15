@@ -7,7 +7,6 @@ import java.sql.SQLException;
 import java.sql.Statement;
 
 public class DeleteLastUserRow implements Operation {
-
     @Override
     public void execute() throws SQLException {
         try (Statement ps = DataSource.getConnection().createStatement()) {
