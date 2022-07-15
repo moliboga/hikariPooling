@@ -14,7 +14,7 @@ public class OutputCurrentUsers implements Operation {
 
     public List<User> getAll() throws SQLException {
         String SQL_QUERY = "select * from user";
-        List<User> users = null;
+        List<User> users;
 
         try (Connection con = DataSource.getConnection();
              PreparedStatement pst = con.prepareStatement( SQL_QUERY );
