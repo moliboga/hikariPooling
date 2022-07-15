@@ -12,7 +12,7 @@ public class DataSource {
     private static HikariDataSource ds;
 
     static {
-        config.setJdbcUrl( "jdbc:mysql://localhost:3306/hikari" );
+        config.setJdbcUrl( "jdbc:mysql://localhost:3306/hikari?createDatabaseIfNotExist=true" );
         config.setUsername( "root" );
         config.setPassword( "135246" );
         config.setDriverClassName("com.mysql.cj.jdbc.Driver");
